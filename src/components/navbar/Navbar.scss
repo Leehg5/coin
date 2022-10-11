@@ -3,63 +3,48 @@
   border-bottom: 0.5px solid rgb(231, 228, 228);
   display: flex;
   align-items: center;
-  font-size: 14px;
+  font-size: 15px;
   color: #555;
+  font-weight: bold;
+  width: 100%;
+
+  .Hader_Login1 {
+    .Login_div {
+    }
+  }
+  .Heder_Loging_button {
+    border: none;
+    background-color: white;
+  }
 
   .wrapper {
     width: 100%;
     display: flex;
     align-items: center;
-    padding: 20px;
+
     justify-content: space-between;
-
-    .search {
-      display: flex;
-      align-items: center;
-      border: 0.5px solid lightgray;
-      padding: 3px;
-
-      input {
-        border: none;
-        outline: none;
-        background-color: transparent;
-      }
-    }
 
     .items {
       display: flex;
       align-items: center;
-      position: relative;
 
       .item {
         display: flex;
+        margin-right: 30px;
         align-items: center;
-        margin-right: 20px;
 
         .icon {
           font-size: 20px;
-        }
-        .avatar {
-          width: 30px;
-          height: 30px;
-          border-radius: 50%;
-        }
-        .counter {
-          width: 15px;
-          height: 15px;
-          background-color: red;
-          color: white;
-          border-radius: 50%;
-          display: flex;
-          font-size: 10px;
-          font-weight: bold;
-          top: -8px;
-          right: 6px;
-          position: absolute;
-          position: relative;
-          border: 1px solid red;
+          margin-right: 10px;
         }
       }
     }
   }
+}
+.Hader_Login1 {
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  width: 150px;
 }
