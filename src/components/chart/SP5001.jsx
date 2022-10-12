@@ -63,10 +63,12 @@ const data = [
 ];
 const cardinal = curveCardinal.tension(0.2);
 
-const KospiChart = () => {
+const SP5001 = () => {
   return (
     <div style={{ width: "22%" }}>
-      <p style={{ fontSize: "15px", marginBottom: "10px" }}>코스피(한국)</p>
+      <p style={{ fontSize: "15px", marginBottom: "10px" }}>
+        나스닥 종합(미국)
+      </p>
       <ResponsiveContainer width="100%" height="70%">
         <AreaChart
           width={500}
@@ -85,7 +87,7 @@ const KospiChart = () => {
           <Area
             type="monotone"
             dataKey="매수"
-            stroke="#FB0202"
+            stroke="#ff00d4"
             fill="#00ff0000"
           />
         </AreaChart>
@@ -98,4 +100,4 @@ const KospiChart = () => {
   );
 };
 
-export default KospiChart;
+export default SP5001;

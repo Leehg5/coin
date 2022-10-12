@@ -65,9 +65,9 @@ const cardinal = curveCardinal.tension(0.2);
 
 const BtiChart = () => {
   return (
-    <div className="BtiChart" style={{ width: "80%" }}>
+    <div className="BtiChart" style={{ width: "22%" }}>
       <p style={{ fontSize: "15px", marginBottom: "10px" }}>비트코인 </p>
-      <ResponsiveContainer width="100%" height="80%">
+      <ResponsiveContainer width="100%" height="70%">
         <AreaChart
           width={500}
           height={400}
@@ -85,7 +85,7 @@ const BtiChart = () => {
           <Area
             type="monotone"
             dataKey="매수"
-            stroke="#ff00d4"
+            stroke="#0602F4"
             fill="#00ff0000"
           />
         </AreaChart>

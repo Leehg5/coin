@@ -14,60 +14,60 @@ import { textAlign } from "@mui/system";
 const data = [
   {
     name: "11",
-    매수: 1289.17,
+    매수: 29647.08,
   },
   {
     name: "12",
-    매수: 1272.38,
+    매수: 27935.62,
   },
   {
     name: "1",
-    매수: 1320.71,
+    매수: 29301.79,
   },
   {
     name: "2",
-    매수: 1327.83,
+    매수: 27078.48,
   },
   {
     name: "3",
-    매수: 1382.27,
+    매수: 26844.72,
   },
   {
     name: "4",
-    매수: 1452.99,
+    매수: 27665.98,
   },
   {
     name: "5",
-    매수: 1289.17,
+    매수: 26818.53,
   },
   {
     name: "6",
-    매수: 1272.38,
+    매수: 27457.89,
   },
   {
     name: "7",
-    매수: 1320.71,
+    매수: 25935.62,
   },
   {
     name: "8",
-    매수: 1327.83,
+    매수: 27993.35,
   },
   {
     name: "9",
-    매수: 1382.27,
+    매수: 27661.47,
   },
   {
     name: "10",
-    매수: 1452.99,
+    매수: 26215.79,
   },
 ];
 const cardinal = curveCardinal.tension(0.2);
 
 const UsdkrwChart = () => {
   return (
-    <div style={{ width: "80%" }}>
-      <p style={{ fontSize: "15px", marginBottom: "10px" }}>달러 매수 </p>
-      <ResponsiveContainer width="100%" height="80%">
+    <div style={{ width: "22%" }}>
+      <p style={{ fontSize: "15px", marginBottom: "10px" }}>니케이 225(일본)</p>
+      <ResponsiveContainer width="100%" height="70%">
         <AreaChart
           width={500}
           height={400}
@@ -85,7 +85,7 @@ const UsdkrwChart = () => {
           <Area
             type="monotone"
             dataKey="매수"
-            stroke="#ff00d4"
+            stroke="#17C50B"
             fill="#00ff0000"
           />
         </AreaChart>

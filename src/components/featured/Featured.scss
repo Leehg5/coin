@@ -1,0 +1,51 @@
+.Featured {
+  -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+  box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+  margin: 40px;
+}
+
+.tbl_type {
+  width: 100%;
+  color: #383838;
+  text-align: center;
+  thead {
+    tr {
+      border: 1px solid #dbd9d9;
+      th {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .tbodyMain {
+    font-weight: bold;
+    text-align: center;
+
+    tr {
+      td {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      border: 1px solid#dbd9d9;
+      td:nth-child(1) {
+        width: 20%;
+      }
+      td:nth-child(2) {
+        width: 20%;
+        text-align: center;
+      }
+      td:nth-child(3) {
+        width: 20%;
+      }
+      td:nth-child(4) {
+        width: 20%;
+      }
+      td:nth-child(5) {
+        width: 20%;
+      }
+    }
+  }
+}
+.tblH31 {
+  margin-bottom: 10px;
+}

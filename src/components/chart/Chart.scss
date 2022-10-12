@@ -9,6 +9,7 @@
   .Kos {
     display: flex;
     text-align: center;
+    justify-content: space-evenly;
   }
 
   .Coin {
@@ -16,5 +17,6 @@
     margin-top: 30px;
     margin-bottom: 20px;
     text-align: center;
+    justify-content: space-evenly;
   }
 }

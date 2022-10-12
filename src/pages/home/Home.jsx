@@ -11,30 +11,22 @@ import { padding } from "@mui/system";
 import Board from "../../components/board/Board";
 import BoardEvent from "../../components/board/BoardEvent";
 import Featured from "../../components/featured/Featured";
+import Imageboard from "../../components/imageboard/Imageboard";
 
 const Home = () => {
   return (
     <div className="Home">
       <div className="chart">
         <Chart />
-        <Featured />
       </div>
 
       <div className="homeContainer">
-        <div className="widgets">
-          <Widget type="user" />
-          <Widget type="order" />
-          <Widget type="earning" />
-          <Widget type="balance" />
-        </div>
-
-        <div className="widgets">
-          <Widget type="user" />
-          <Widget type="order" />
-          <Widget type="earning" />
-          <Widget type="balance" />
-        </div>
+        <Featured />
       </div>
+      <div className="Imageboard1">
+        <Imageboard />
+      </div>
+
       <div className="listContainer">
         <Board />
         <BoardEvent />
