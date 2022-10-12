@@ -1,4 +1,4 @@
-import React from "react";
+import React, { PureComponent } from "react";
 import {
   AreaChart,
   Area,
@@ -8,53 +8,74 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+import { curveCardinal } from "d3-shape";
+import { textAlign } from "@mui/system";
 
 const data = [
   {
-    name: "5월",
-
-    가격: 49383000,
+    name: "11",
+    매수: 72401000,
   },
   {
-    name: "6월",
-
-    가격: 37880000,
+    name: "12",
+    매수: 70936000,
   },
   {
-    name: "7월",
-
-    가격: 25556000,
+    name: "1",
+    매수: 57915000,
   },
   {
-    name: "8월",
-
-    가격: 30851000,
+    name: "2",
+    매수: 47760000,
   },
   {
-    name: "9월",
-
-    가격: 27571000,
+    name: "3",
+    매수: 53790000,
   },
   {
-    name: "10월",
-    가격: 27868000,
+    name: "4",
+    매수: 56369000,
+  },
+  {
+    name: "5",
+    매수: 49383000,
+  },
+  {
+    name: "6",
+    매수: 37880000,
+  },
+  {
+    name: "7",
+    매수: 25556000,
+  },
+  {
+    name: "8",
+    매수: 30851000,
+  },
+  {
+    name: "9",
+    매수: 27636000,
+  },
+  {
+    name: "10",
+    매수: 27868000,
   },
 ];
+const cardinal = curveCardinal.tension(0.2);
 
 const BtiChart = () => {
   return (
-    <div style={{ width: "100%" }}>
-      <p style={{ fontSize: "15px" }}>비트코인</p>
-      <ResponsiveContainer width="100%" height={200}>
+    <div className="BtiChart" style={{ width: "80%" }}>
+      <p style={{ fontSize: "15px", marginBottom: "10px" }}>비트코인 </p>
+      <ResponsiveContainer width="100%" height="80%">
         <AreaChart
           width={500}
-          height={200}
+          height={400}
           data={data}
-          syncId="Bit"
           margin={{
             top: 10,
-            right: 0,
-            left: 30,
+            right: 30,
+            left: 0,
             bottom: 0,
           }}>
           <CartesianGrid strokeDasharray="3 3" />
@@ -63,12 +84,13 @@ const BtiChart = () => {
           <Tooltip />
           <Area
             type="monotone"
-            dataKey="가격"
-            stroke="#0004ff"
-            fill="#0004ff"
+            dataKey="매수"
+            stroke="#ff00d4"
+            fill="#00ff0000"
           />
         </AreaChart>
       </ResponsiveContainer>
+      <p style={{ textAlign: "end", marginRight: "21px" }}>(월) </p>
     </div>
   );
 };

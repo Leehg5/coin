@@ -1,7 +1,7 @@
 import Chart from "../../components/chart/Chart";
 import "./Home.scss";
 import Widget from "../../components/widget/Widget";
-import Featured from "../../components/featured/Featured";
+
 import Box from "@mui/material/Box";
 import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
@@ -10,6 +10,7 @@ import TabPanel from "@mui/lab/TabPanel";
 import { padding } from "@mui/system";
 import Board from "../../components/board/Board";
 import BoardEvent from "../../components/board/BoardEvent";
+import Featured from "../../components/featured/Featured";
 
 const Home = () => {
   return (

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { PureComponent } from "react";
 import {
   AreaChart,
   Area,
@@ -8,57 +8,89 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+import { curveCardinal } from "d3-shape";
+import { textAlign } from "@mui/system";
 
 const data = [
   {
-    name: "5월",
-    uv: 2687.45,
+    name: "11",
+    매수: 1289.17,
   },
   {
-    name: "6월",
-    uv: 2658.99,
+    name: "12",
+    매수: 1272.38,
   },
   {
-    name: "7월",
-    uv: 2305.42,
+    name: "1",
+    매수: 1320.71,
   },
   {
-    name: "8월",
-    uv: 2452.25,
+    name: "2",
+    매수: 1327.83,
   },
   {
-    name: "9월",
-    uv: 2415.61,
+    name: "3",
+    매수: 1382.27,
   },
   {
-    name: "10월",
-    uv: 2209.38,
+    name: "4",
+    매수: 1452.99,
+  },
+  {
+    name: "5",
+    매수: 1289.17,
+  },
+  {
+    name: "6",
+    매수: 1272.38,
+  },
+  {
+    name: "7",
+    매수: 1320.71,
+  },
+  {
+    name: "8",
+    매수: 1327.83,
+  },
+  {
+    name: "9",
+    매수: 1382.27,
+  },
+  {
+    name: "10",
+    매수: 1452.99,
   },
 ];
+const cardinal = curveCardinal.tension(0.2);
 
 const KospiChart = () => {
   return (
-    <div style={{ width: "100%" }}>
-      <p style={{ fontSize: "15px" }}>코스피</p>
-      <ResponsiveContainer width="100%" height={200}>
+    <div style={{ width: "80%" }}>
+      <p style={{ fontSize: "15px", marginBottom: "10px" }}>코스피</p>
+      <ResponsiveContainer width="100%" height="80%">
         <AreaChart
           width={500}
-          height={200}
+          height={400}
           data={data}
-          syncId="Kospi"
           margin={{
             top: 10,
-            right: 0,
-            left: 30,
+            right: 30,
+            left: 0,
             bottom: 0,
           }}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
 
           <Tooltip />
-          <Area type="monotone" dataKey="uv" stroke="#ff0400" fill="#ff0400" />
+          <Area
+            type="monotone"
+            dataKey="매수"
+            stroke="#ff00d4"
+            fill="#00ff0000"
+          />
         </AreaChart>
       </ResponsiveContainer>
+      <p style={{ textAlign: "end", marginRight: "21px" }}>(월) </p>
     </div>
   );
 };

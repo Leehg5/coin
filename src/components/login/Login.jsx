@@ -35,14 +35,18 @@ const Login = () => {
             <div className="socialBox">
               <div className="kakao">
                 <img className="kakaoLogo" src="/Images/SignIn/kakao.png" />
-                <div className="kakaoText">카카오 계정으로 신규가입</div>
+                <div className="kakaoText">
+                  <a href="">카카오 계정으로 신규가입</a>
+                </div>
               </div>
               <div className="facebook">
                 <img
                   className="facebookLogo"
                   src="/Images/SignIn/facebook.png"
                 />
-                <div className="facebookText">페이스북 계정으로 신규가입</div>
+                <div className="facebookText">
+                  <a href="">페이스북 계정으로 신규가입</a>
+                </div>
               </div>
             </div>
           </p>

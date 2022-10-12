@@ -1,4 +1,4 @@
-import React from "react";
+import React, { PureComponent } from "react";
 import {
   AreaChart,
   Area,
@@ -8,54 +8,74 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+import { curveCardinal } from "d3-shape";
+import { textAlign } from "@mui/system";
 
 const data = [
   {
-    name: "5월",
-
-    가격: 3625000,
+    name: "11",
+    매수: 1289.17,
   },
   {
-    name: "6월",
-
-    가격: 2312000,
+    name: "12",
+    매수: 1272.38,
   },
   {
-    name: "7월",
-
-    가격: 1403500,
+    name: "1",
+    매수: 1320.71,
   },
   {
-    name: "8월",
-
-    가격: 2167000,
+    name: "2",
+    매수: 1327.83,
   },
   {
-    name: "9월",
-
-    가격: 2175000,
+    name: "3",
+    매수: 1382.27,
   },
   {
-    name: "10월",
-
-    가격: 1896500,
+    name: "4",
+    매수: 1452.99,
+  },
+  {
+    name: "5",
+    매수: 1289.17,
+  },
+  {
+    name: "6",
+    매수: 1272.38,
+  },
+  {
+    name: "7",
+    매수: 1320.71,
+  },
+  {
+    name: "8",
+    매수: 1327.83,
+  },
+  {
+    name: "9",
+    매수: 1382.27,
+  },
+  {
+    name: "10",
+    매수: 1452.99,
   },
 ];
+const cardinal = curveCardinal.tension(0.2);
 
 const EthChart = () => {
   return (
-    <div style={{ width: "100%" }}>
-      <p style={{ fontSize: "15px" }}>이더리움</p>
-      <ResponsiveContainer width="100%" height={200}>
+    <div style={{ width: "80%" }}>
+      <p style={{ fontSize: "15px", marginBottom: "10px" }}>이더리움 </p>
+      <ResponsiveContainer width="100%" height="80%">
         <AreaChart
           width={500}
-          height={200}
+          height={400}
           data={data}
-          syncId="Eth"
           margin={{
             top: 10,
-            right: 0,
-            left: 30,
+            right: 30,
+            left: 0,
             bottom: 0,
           }}>
           <CartesianGrid strokeDasharray="3 3" />
@@ -64,12 +84,13 @@ const EthChart = () => {
           <Tooltip />
           <Area
             type="monotone"
-            dataKey="가격"
-            stroke="#0004ff"
-            fill="#0004ff"
+            dataKey="매수"
+            stroke="#ff00d4"
+            fill="#00ff0000"
           />
         </AreaChart>
       </ResponsiveContainer>
+      <p style={{ textAlign: "end", marginRight: "21px" }}>(월) </p>
     </div>
   );
 };
