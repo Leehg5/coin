@@ -16,7 +16,9 @@ const Sidebar = () => {
     <div className="Sidebar">
       <div className="top">
         <a href="/">
-          <span className="logo">sdas</span>
+          <span className="logo">
+            <img src="https://ifh.cc/g/yoMxsd.png" alt="" />
+          </span>
         </a>
       </div>
       <hr />

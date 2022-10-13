@@ -13,16 +13,10 @@ const Chart = () => {
   return (
     <div className="Chart">
       <div className="Kos">
-        <KospiChart className="KospiChart" />
         <BtiChart className="BtiChart" />
-        <SP500 />
-        <UsdkrwChart className="KosdaqChart" />
-      </div>
-      <div className="Coin">
-        <KosdaqChart className="KosdaqChart" />
         <EthChart className="EthChart" />
-        <SP5001 />
-        <UsdkrwChart1 />
+        <KospiChart className="KospiChart" />
+        <KosdaqChart className="KosdaqChart" />
       </div>
     </div>
   );

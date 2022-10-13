@@ -5,11 +5,6 @@ import "./Featured.scss";
 const Featured = () => {
   return (
     <div class="Featured">
-      <img
-        style={{ width: "100%", height: "150px", marginBottom: "20px" }}
-        src="https://www.hellofunding.co.kr/theme/2018/img/new_m/new_main_banner_01.jpg"
-        alt=""
-      />
       <table class="tbl_type">
         <thead>
           <tr>

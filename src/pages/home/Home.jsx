@@ -12,11 +12,13 @@ import Board from "../../components/board/Board";
 import BoardEvent from "../../components/board/BoardEvent";
 import Featured from "../../components/featured/Featured";
 import Imageboard from "../../components/imageboard/Imageboard";
+import Banner from "../../components/banner/Banner";
 
 const Home = () => {
   return (
     <div className="Home">
       <div className="homeContainer">
+        <Banner />
         <Featured />
       </div>
       <div className="chart">
