@@ -18,7 +18,7 @@ const Imageboard = () => {
               />
             </figure>
             <div className="">
-              <h2 className="card-title">오랜만에 수익이다</h2>
+              <h2 className="card-title">수익</h2>
               <p>달달하네요</p>
               <div className=""></div>
             </div>
@@ -33,8 +33,8 @@ const Imageboard = () => {
               />
             </figure>
             <div className="">
-              <h2 className="card-title">오랜만에 수익이다</h2>
-              <p>달달하네요</p>
+              <h2 className="card-title">수익</h2>
+              <p>네요달달하네요네요달달하네요 달달하네요</p>
               <div className=""></div>
             </div>
           </a>
@@ -45,7 +45,7 @@ const Imageboard = () => {
               <img src="http://asq.kr/ZqKvaN204n" alt="Shoes" />
             </figure>
             <div className="">
-              <h2 className="card-title">오랜만에 수익이다</h2>
+              <h2 className="card-title">수익</h2>
               <p>달달하네요</p>
               <div className=""></div>
             </div>
@@ -57,7 +57,7 @@ const Imageboard = () => {
               <img src="http://asq.kr/XAaMNewbD" alt="Shoes" />
             </figure>
             <div className="">
-              <h2 className="card-title">오랜만에 수익이다</h2>
+              <h2 className="card-title">손실</h2>
               <p>달달하네요</p>
               <div className=""></div>
             </div>
