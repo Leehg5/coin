@@ -16,12 +16,11 @@ import Imageboard from "../../components/imageboard/Imageboard";
 const Home = () => {
   return (
     <div className="Home">
-      <div className="chart">
-        <Chart />
-      </div>
-
       <div className="homeContainer">
         <Featured />
+      </div>
+      <div className="chart">
+        <Chart />
       </div>
       <div className="Imageboard1">
         <Imageboard />

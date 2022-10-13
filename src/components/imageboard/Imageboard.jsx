@@ -2,13 +2,7 @@ import React from "react";
 import "./Imageboard.scss";
 
 const Imageboard = () => {
-  return (
-    <div className="Imageboard">
-      <div>
-        <img src="" alt="" />
-      </div>
-    </div>
-  );
+  return <div className="Imageboard">Imageboard</div>;
 };
 
 export default Imageboard;
