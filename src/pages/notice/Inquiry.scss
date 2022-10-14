@@ -66,9 +66,7 @@
   text-decoration: none;
 }
 .tbl_type {
-  width: 100%;
-
-  tbody {
+  .InquiryTbody {
     white-space: nowrap;
     tr {
       td:nth-child(1) {

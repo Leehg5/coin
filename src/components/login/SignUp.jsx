@@ -1,5 +1,6 @@
 import React from "react";
 import "./SignUp.scss";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 const SignUp = () => {
   return (
@@ -10,6 +11,7 @@ const SignUp = () => {
       <div class="modal">
         <div class="modal-box">
           <h3 class="font-bold text-lg">회원가입</h3>
+          <AccountCircleIcon sx={{ fontSize: 70, marginTop: "20px" }} />
 
           <p class="py-4">
             <div className="SignUp_input">
@@ -60,12 +62,12 @@ const SignUp = () => {
               </div>
             </div>
             <div className="SiguUpBtndiv">
-              <label className="SignUpBtn" for="my-modal">
-                나가기
-              </label>
               <button className="SignUpBtn" for="my-modal ">
                 가입하기
               </button>
+              <label className="SignUpBtn" for="my-modal">
+                나가기
+              </label>
             </div>
           </p>
         </div>

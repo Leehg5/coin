@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Login.scss";
+import axios from "axios";
 
 const Login = () => {
+  const [userId, setUserId] = useState("");
+  const [password, setPassword] = useState("");
+  const [logined, setLogined] = useState(false);
+
   return (
     <div className="Login">
       <label for="my-modal-1">로그인</label>
@@ -15,26 +20,55 @@ const Login = () => {
 
           <h1 class="text-lg font-bold">로그인 페이지</h1>
           <p class="py-4">
-            <div className="Login_input">
-              <input
-                className="loginId"
-                type="text"
-                placeholder="아이디를 입력하세요"
-              />
+            <div>
+              <div className="Login_input">
+                <input
+                  className="loginId"
+                  type="text"
+                  placeholder="ID"
+                  vlaue={userId}
+                  onChange={(e) => {
+                    setUserId(e.target.value);
+                  }}
+                />
+              </div>
+              <div className="Login_input1">
+                <input
+                  className="loginPw"
+                  type="password"
+                  placeholder="Password"
+                  vlaue={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                />
+              </div>
+              <div className="loginMid"></div>
+              <div className="autoLogin">아이디/비밀번호 찾기</div>
+              <button
+                className="loginBtn"
+                onClick={async () => {
+                  try {
+                    const data = await axios({
+                      url: "http://localhost:4444/login",
+                      method: "POST",
+                      data: { user_id: userId, password },
+                    });
+                    console.log(data.data);
+                    setLogined(data.data);
+                  } catch (e) {
+                    alert(e.reponse.date.msg);
+                  }
+                }}>
+                > 로그인{" "}
+              </button>
             </div>
-            <div className="Login_input1">
-              <input
-                className="loginPw"
-                type="password"
-                placeholder="비밀번호를 입력하세요"
-              />
-            </div>
-            <div className="loginMid"></div>
-            <div className="autoLogin">아이디/비밀번호 찾기</div>
-            <button className="loginBtn"> 로그인 </button>
             <div className="socialBox">
               <div className="kakao">
-                <img className="kakaoLogo" src="/Images/SignIn/kakao.png" />
+                <img
+                  className="kakaoLogo"
+                  src="https://t1.daumcdn.net/cfile/tistory/99DD44345F33780309"
+                />
                 <div className="kakaoText">
                   <a href="">카카오 계정으로 신규가입</a>
                 </div>
@@ -42,10 +76,16 @@ const Login = () => {
               <div className="facebook">
                 <img
                   className="facebookLogo"
-                  src="/Images/SignIn/facebook.png"
+                  src="https://cdn.icon-icons.com/icons2/1826/PNG/512/4202110facebooklogosocialsocialmedia-115707_115594.png"
                 />
                 <div className="facebookText">
                   <a href="">페이스북 계정으로 신규가입</a>
+                </div>
+              </div>
+              <div className="Google">
+                <img className="GoogleLogo" src="http://asq.kr/y7pd84Th" />
+                <div className="GoogleText">
+                  <a href="">구글 계정으로 신규가입</a>
                 </div>
               </div>
             </div>

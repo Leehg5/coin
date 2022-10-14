@@ -4,8 +4,8 @@ import "./Imageboard.scss";
 const Imageboard = () => {
   return (
     <div className="Imageboard">
-      <div className="HmoeRevenue">
-        <h1>손익 인증 게시판</h1>
+      <div className="ImageboardHmoeRevenue">
+        <h1 className="">손익 인증 게시판</h1>
         <a href="/">+</a>
       </div>
       <div className="RevenueDiv">

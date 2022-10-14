@@ -79,6 +79,31 @@ p {
 
 .socialBox {
   margin-bottom: 20px;
+  .Google {
+    background-color: white;
+    height: 40px;
+    display: flex;
+    border: 1px solid #dcdcdc;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    margin-top: 10px;
+
+    .GoogleLogo {
+      width: 24px;
+      height: 25px;
+    }
+    .GoogleText {
+      width: 300px;
+      font-size: 15px;
+      text-align: center;
+      display: inline-block;
+      box-sizing: border-box;
+    }
+  }
+
   .kakao {
     background-color: #feec34;
     border-color: #feec34;
@@ -120,10 +145,12 @@ p {
       text-align: center;
       box-sizing: border-box;
     }
-    > .facebookLogo {
+    .facebookLogo {
       padding-top: 7px;
       width: 24px;
-      height: 25px;
+      align-items: center;
+      margin-left: 7px;
+      height: 30px;
     }
   }
 }

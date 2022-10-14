@@ -4,7 +4,6 @@ import Stock from "../pages/stock/Stock";
 import OvStocks from "../pages/stock/OvStocks";
 import BoardStock from "../pages/stock/BoardStock";
 import Coin from "../pages/coin/Coin";
-import BoardCoin from "../pages/coin/BoardCoin";
 import Margin from "../pages/margin/Margin";
 import BoardCoinMargin from "../pages/margin/BoardCoinMargin";
 import Community from "../pages/community/Community";
@@ -13,6 +12,7 @@ import Notice from "../pages/notice/Notice";
 import Event from "../pages/notice/Event";
 import Inquiry from "../pages/notice/Inquiry";
 import Privacy from "../pages/set/Privacy";
+import BoardCoin from "../pages/coin/BoardCoin";
 import "./Contents.scss";
 import { Routes, Route } from "react-router-dom";
 
@@ -25,6 +25,8 @@ const Contents = () => {
         <Route path="/ovStocks" element={<OvStocks />} />
         <Route path="/boardStock" element={<BoardStock />} />
         <Route path="/coin" element={<Coin />} />
+        <Route path="/margin" element={<Margin />} />
+        <Route path="/boardCoin" element={<BoardCoin />} />
         <Route path="/boardCoinMargin" element={<BoardCoinMargin />} />
         <Route path="/community" element={<Community />} />
         <Route path="/revenue" element={<Revenue />} />

@@ -45,7 +45,7 @@ const Inquiry = () => {
             <th scope="col">조회수</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="InquiryTbody">
           <tr>
             <td class="num">8</td>
             <td class="title">
