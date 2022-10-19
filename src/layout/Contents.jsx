@@ -16,6 +16,7 @@ import BoardCoin from "../pages/coin/BoardCoin";
 import Write from "../components/write/Write";
 import "./Contents.scss";
 import { Routes, Route } from "react-router-dom";
+import DetailPage from "../components/etailpage/DetailPage";
 
 const Contents = () => {
   return (
@@ -33,6 +34,7 @@ const Contents = () => {
         <Route path="/revenue" element={<Revenue />} />
         <Route path="/notice" element={<Notice />} />
         <Route path="/event" element={<Event />} />
+        <Route path="/detailPage" element={<DetailPage />} />
         <Route path="/write" element={<Write />} />
         <Route path="/inquiry" element={<Inquiry />} />
         <Route path="/privacy" element={<Privacy />}></Route>
