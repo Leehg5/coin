@@ -46,11 +46,7 @@
     font-weight: bold;
   }
 }
-.DetailPage_BoootMaindiv {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
+
 .DetailPage_BoootList {
   margin-top: 20px;
   width: 100%;
@@ -68,7 +64,25 @@
   }
 }
 .DetailPage_Booot {
-  width: 100%;
+  .DetailPage_BoootMaindiv {
+    width: 100%;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: flex;
+  }
+  div:nth-child(1) {
+    width: 300px;
+  }
+  div:nth-child(2) {
+    width: 300px;
+  }
+  div:nth-child(3) {
+    width: 300px;
+  }
+  div:nth-child(4) {
+    width: 300px;
+  }
 }
 .sdlakjshkdahfkd {
   text-align: end;

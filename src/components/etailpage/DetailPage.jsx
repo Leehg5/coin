@@ -29,20 +29,20 @@ const DetailPage = () => {
       </div>
 
       <div className="DetailPage_Booot">
-        <div className="DetailPage_BoootMaindiv">전체 댓글</div>
+        <div className="DetailPage_BoootMaindiv">
+          <div>댓글</div>
+          <div>등록순</div>
+          <div>최신순</div>
+          <div>새로고침</div>
+        </div>
         <hr className="DetailPageHr" />
         <ul className="DetailPage_BoootList">
+          <span>이용민</span>
+          <span>2022.02.16</span>
           <li>
+            {" "}
             안뇽하세요안뇽하세요안뇽하세요안뇽하세요안뇽하세요안뇽하세요안뇽하세요안뇽하세요
-            <ClearIcon className="DetailPageIcon" />
-          </li>
-          <li>
-            안뇽하세요안뇽하세요안뇽하세요안뇽하세요안뇽하세요안뇽하세요안뇽하세요안뇽하세요
-            <ClearIcon className="DetailPageIcon" />
-          </li>
-          <li>
-            안뇽하세요안뇽하세요안뇽하세요안뇽하세요안뇽하세요안뇽하세요안뇽하세요안뇽하세요
-            <ClearIcon className="DetailPageIcon" />
+            <button className="DetailPageIcon">답글쓰기</button>
           </li>
         </ul>
       </div>
