@@ -13,6 +13,7 @@ import Event from "../pages/notice/Event";
 import Inquiry from "../pages/notice/Inquiry";
 import Privacy from "../pages/set/Privacy";
 import BoardCoin from "../pages/coin/BoardCoin";
+import Write from "../components/write/Write";
 import "./Contents.scss";
 import { Routes, Route } from "react-router-dom";
 
@@ -32,7 +33,7 @@ const Contents = () => {
         <Route path="/revenue" element={<Revenue />} />
         <Route path="/notice" element={<Notice />} />
         <Route path="/event" element={<Event />} />
-
+        <Route path="/write" element={<Write />} />
         <Route path="/inquiry" element={<Inquiry />} />
         <Route path="/privacy" element={<Privacy />}></Route>
       </Routes>

@@ -3,6 +3,9 @@ import "./SignUp.scss";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 const SignUp = () => {
+  const onSubmit = () => {
+    alert("회원가입이 되었습니다");
+  };
   return (
     <div className="SignUp">
       <label for="my-modal">회원가입</label>
@@ -62,7 +65,14 @@ const SignUp = () => {
               </div>
             </div>
             <div className="SiguUpBtndiv">
-              <button className="SignUpBtn" for="my-modal ">
+              <button
+                className="SignUpBtn"
+                for="my-modal "
+                onClick={(e) => {
+                  e.preventDefault();
+                  alert("가입 완료");
+                  e.currentTarget.disabled = true;
+                }}>
                 가입하기
               </button>
               <label className="SignUpBtn" for="my-modal">

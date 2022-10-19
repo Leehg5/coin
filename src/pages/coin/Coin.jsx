@@ -1,8 +1,37 @@
-import React from "react";
 import "./Coin.scss";
 import ZoomInIcon from "@mui/icons-material/ZoomIn";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const Coin = () => {
+  const [test, setTest] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const fetchUsers = async () => {
+    try {
+      // 요청이 시작 할 때에는 error 와 users 를 초기화하고
+      setError(null);
+      setTest(null);
+      // loading 상태를 true 로 바꿉니다.
+      setLoading(true);
+      const response = await axios.get("http://localhost:7999/board/coin/get");
+      setTest(response.data); // 데이터는 response.data 안에 들어있습니다.
+    } catch (e) {
+      setError(e);
+    }
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
+  if (loading) return <div>로딩중..</div>;
+  if (error) return <div>에러가 발생했습니다</div>;
+
+  // 아직 users가 받아와 지지 않았을 때는 아무것도 표시되지 않도록 해줍니다.
+  if (!test) return null;
   return (
     <div class="Coin">
       <div className="CoinTitel">
@@ -30,94 +59,17 @@ const Coin = () => {
           </tr>
         </thead>
         <tbody className="CoinTbody">
-          <tr>
-            <td class="num">8</td>
-            <td class="title">
-              <a href="#">문의합니다문의합니다문의합니다문의합니다</a>
-            </td>
-            <td>
-              <a href="#">강아지</a>
-            </td>
-            <td class="date">2022.02.14</td>
-            <td class="hit">1</td>
-          </tr>
-          <tr>
-            <td class="num">7</td>
-            <td class="title">
-              <a href="#">건의합니다</a>
-            </td>
-            <td>
-              <a href="#">고양이</a>
-            </td>
-            <td class="date">2022.02.14</td>
-            <td class="hit">1</td>
-          </tr>
-          <tr>
-            <td class="num">6</td>
-            <td class="title">
-              <a href="#">건의합니다</a>
-            </td>
-            <td>
-              <a href="#">돼지</a>
-            </td>
-            <td class="date">2022.02.14</td>
-            <td class="hit">1</td>
-          </tr>
-          <tr>
-            <td class="num">5</td>
-            <td class="title">
-              <a href="#">건의합니다</a>
-            </td>
-            <td>
-              <a href="#">돼지</a>
-            </td>
-            <td class="date">2022.02.14</td>
-            <td class="hit">1</td>
-          </tr>
-          <tr>
-            <td class="num">4</td>
-            <td class="title">
-              <a href="#">건의합니다</a>
-            </td>
-            <td>
-              <a href="#">돼지</a>
-            </td>
-            <td class="date">2022.02.14</td>
-            <td class="hit">1</td>
-          </tr>
-          <tr>
-            <td class="num">3</td>
-            <td class="title">
-              <a href="#">건의합니다</a>
-            </td>
-            <td>
-              <a href="#">돼지</a>
-            </td>
-            <td class="date">2022.02.14</td>
-            <td class="hit">1</td>
-          </tr>
-          <tr>
-            <td class="num">2</td>
-            <td class="title">
-              <a href="#">건의합니다</a>
-            </td>
-            <td>
-              <a href="#">돼지</a>
-            </td>
-            <td class="date">2022.02.14</td>
-            <td class="hit">1</td>
-          </tr>
-          <tr>
-            <td class="num">1</td>
-            <td class="title">
-              <a href="#">건의합니다</a>
-            </td>
-            <td>
-              <a href="#">돼지</a>
-            </td>
-            <td class="date">2022.02.14</td>
-            <td class="hit">1</td>
-          </tr>
+          {test.map((Coin) => (
+            <tr key={Coin.id}>
+              <td> {Coin.id}</td>
+              <td>
+                <a href=""> {Coin.subject}</a>
+              </td>
+              <td> {Coin.author}</td>
+              <td> {Coin.date}</td>
+              <td> {Coin.views}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
       <div className="CoinEndDiv1">

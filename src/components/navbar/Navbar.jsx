@@ -6,9 +6,7 @@ import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import Login from "../login/Login";
 import SignUp from "../login/SignUp";
 
-const Navbar = ({ setLoginToggle, onLoginToggle }) => {
-  const [userId, setUserId] = useState("");
-  const [password, setPassword] = useState("");
+const Navbar = () => {
   const [logined, setLogined] = useState(false);
 
   return (
@@ -21,8 +19,19 @@ const Navbar = ({ setLoginToggle, onLoginToggle }) => {
             Korea
           </div>
           <div className="Hader_Login1">
-            <Login />
-            <SignUp />
+            {logined ? (
+              <div
+                onClick={() => {
+                  setLogined(false);
+                }}>
+                로그아웃
+              </div>
+            ) : (
+              <div className="Hader_Login1">
+                <Login />
+                <SignUp />
+              </div>
+            )}
           </div>
         </div>
       </div>

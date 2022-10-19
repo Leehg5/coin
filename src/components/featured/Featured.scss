@@ -8,6 +8,8 @@
   color: #383838;
   text-align: center;
   thead {
+    border: 1px solid red;
+
     tr {
       border: 1px solid #dbd9d9;
       th {
@@ -18,9 +20,11 @@
 
   .tbodyMain {
     font-weight: bold;
-    text-align: center;
 
     tr {
+      text-align: center;
+      align-items: center;
+
       td {
         font-size: 14px;
         font-weight: 600;
@@ -31,7 +35,6 @@
       }
       td:nth-child(2) {
         width: 20%;
-        text-align: center;
       }
       td:nth-child(3) {
         width: 20%;

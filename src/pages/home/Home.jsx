@@ -13,6 +13,7 @@ import BoardEvent from "../../components/board/BoardEvent";
 import Featured from "../../components/featured/Featured";
 import Imageboard from "../../components/imageboard/Imageboard";
 import Banner from "../../components/banner/Banner";
+import User from "../../Users";
 
 const Home = () => {
   return (
@@ -21,6 +22,7 @@ const Home = () => {
         <Banner />
         <Featured />
       </div>
+
       <div className="chart">
         <Chart />
       </div>

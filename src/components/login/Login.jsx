@@ -50,17 +50,18 @@ const Login = () => {
                 onClick={async () => {
                   try {
                     const data = await axios({
-                      url: "http://localhost:4444/login",
+                      url: "http://localhost:8083/login",
                       method: "POST",
-                      data: { user_id: userId, password },
+                      data: { userid: userId, password },
                     });
                     console.log(data.data);
+
                     setLogined(data.data);
                   } catch (e) {
-                    alert(e.reponse.date.msg);
+                    alert(e.reponse.date);
                   }
                 }}>
-                > 로그인{" "}
+                로그인{" "}
               </button>
             </div>
             <div className="socialBox">

@@ -1,5 +1,6 @@
 import React from "react";
 import "./Stock.scss";
+
 import ZoomInIcon from "@mui/icons-material/ZoomIn";
 
 const Stock = () => {
@@ -37,83 +38,6 @@ const Stock = () => {
             </td>
             <td>
               <a href="#">강아지</a>
-            </td>
-            <td class="date">2022.02.14</td>
-            <td class="hit">1</td>
-          </tr>
-          <tr>
-            <td class="num">7</td>
-            <td class="title">
-              <a href="#">건의합니다</a>
-            </td>
-            <td>
-              <a href="#">고양이</a>
-            </td>
-            <td class="date">2022.02.14</td>
-            <td class="hit">1</td>
-          </tr>
-          <tr>
-            <td class="num">6</td>
-            <td class="title">
-              <a href="#">건의합니다</a>
-            </td>
-            <td>
-              <a href="#">돼지</a>
-            </td>
-            <td class="date">2022.02.14</td>
-            <td class="hit">1</td>
-          </tr>
-          <tr>
-            <td class="num">5</td>
-            <td class="title">
-              <a href="#">건의합니다</a>
-            </td>
-            <td>
-              <a href="#">돼지</a>
-            </td>
-            <td class="date">2022.02.14</td>
-            <td class="hit">1</td>
-          </tr>
-          <tr>
-            <td class="num">4</td>
-            <td class="title">
-              <a href="#">건의합니다</a>
-            </td>
-            <td>
-              <a href="#">돼지</a>
-            </td>
-            <td class="date">2022.02.14</td>
-            <td class="hit">1</td>
-          </tr>
-          <tr>
-            <td class="num">3</td>
-            <td class="title">
-              <a href="#">건의합니다</a>
-            </td>
-            <td>
-              <a href="#">돼지</a>
-            </td>
-            <td class="date">2022.02.14</td>
-            <td class="hit">1</td>
-          </tr>
-          <tr>
-            <td class="num">2</td>
-            <td class="title">
-              <a href="#">건의합니다</a>
-            </td>
-            <td>
-              <a href="#">돼지</a>
-            </td>
-            <td class="date">2022.02.14</td>
-            <td class="hit">1</td>
-          </tr>
-          <tr>
-            <td class="num">1</td>
-            <td class="title">
-              <a href="#">건의합니다</a>
-            </td>
-            <td>
-              <a href="#">돼지</a>
             </td>
             <td class="date">2022.02.14</td>
             <td class="hit">1</td>
