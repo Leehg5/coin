@@ -8,19 +8,19 @@
   }
 }
 .DetailPagelist {
-  width: 100%;
   margin-top: 10px;
   margin-bottom: 10px;
   .DetailPagelistdiv {
     display: flex;
     width: 100%;
-    div:nth-child(1) {
-      width: 20%;
+    span:nth-child(1) {
+      width: 30%;
+      margin-right: 20px;
     }
-    div:nth-child(2) {
-      width: 20%;
+    span:nth-child(2) {
+      width: 40%;
     }
-    div:nth-child(3) {
+    span:nth-child(3) {
       text-align: end;
       width: 100%;
     }
@@ -99,8 +99,16 @@
   }
   .DetailPage_button1 {
     flex: 1;
-    background-color: #d4d4d8;
-    color: black;
+
+    background-color: #848484;
+    border-radius: 20px;
+    border: 1px solid #848484;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 15px;
+    padding: 9px 23px;
     font-weight: bold;
   }
 }

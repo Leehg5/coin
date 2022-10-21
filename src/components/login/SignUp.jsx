@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "./SignUp.scss";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 const SignUp = () => {
-  const onSubmit = () => {
-    alert("회원가입이 되었습니다");
-  };
+  const [UserName, setUserName] = useState("");
+  const [UserId, setUserId] = useState("");
+  const [ConfirmPassword, setConfirmPassword] = useState("");
+  const [Password, setPassword] = useState("");
+
+  const onSubmit = () => {};
   return (
     <div className="SignUp">
       <label for="my-modal">회원가입</label>
@@ -15,71 +18,77 @@ const SignUp = () => {
         <div class="modal-box">
           <h3 class="font-bold text-lg">회원가입</h3>
           <AccountCircleIcon sx={{ fontSize: 70, marginTop: "20px" }} />
-
-          <p class="py-4">
-            <div className="SignUp_input">
-              <input
-                className="loginId"
-                type="text"
-                placeholder="이름을 입력하세요"
-              />
-            </div>
-            <div className="SignUp_input">
-              <input
-                className="loginId"
-                type="text"
-                placeholder="아이디를 입력하세요"
-              />
-            </div>
-            <div className="SignUp_input">
-              <input
-                className="loginId"
-                type="password"
-                placeholder="비밀번호 입력하세요"
-              />
-            </div>
-            <div className="SignUp_input">
-              <input
-                className="loginId"
-                type="password"
-                placeholder="비밀번호"
-              />
-            </div>
-            <div class="join_row">
-              <div className="Joindiv">
-                <h3 class="join_title"></h3>
-                <div class="ps_box gender_code">
-                  <select
-                    id="gender"
-                    name="gender"
-                    class="sel"
-                    aria-label="성별">
-                    <option value="" selected>
-                      남자
-                    </option>
-                    <option value="M">남자</option>
-                    <option value="F">여자</option>
-                    <option value="U">선택 안함</option>
-                  </select>
+          <form action="http://localhost:7999/account/signUp" method="post">
+            <p class="py-4">
+              <div className="SignUp_input">
+                <input
+                  className="loginId"
+                  type="text"
+                  vlaue={UserName}
+                  placeholder="이름을 입력하세요"
+                  onChange={(e) => {
+                    setUserName(e.target.value);
+                  }}
+                />
+              </div>
+              <div className="SignUp_input">
+                <input
+                  className="loginId"
+                  type="text"
+                  vlaue={UserId}
+                  placeholder="아이디를 입력하세요"
+                  onChange={(e) => {
+                    setUserId(e.target.value);
+                  }}
+                />
+              </div>
+              <div className="SignUp_input">
+                <input
+                  className="loginId"
+                  type="password"
+                  vlaue={Password}
+                  placeholder="비밀번호 입력하세요"
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                />
+              </div>
+              <div className="SignUp_input">
+                <input
+                  className="loginId"
+                  type="password"
+                  placeholder="비밀번호"
+                  vlaue={ConfirmPassword}
+                  onChange={(e) => {
+                    setConfirmPassword(e.target.value);
+                  }}
+                />
+              </div>
+              <div class="join_row">
+                <div className="Joindiv">
+                  <h3 class="join_title"></h3>
+                  <div class="ps_box gender_code"></div>
                 </div>
               </div>
-            </div>
-            <div className="SiguUpBtndiv">
-              <button
-                className="SignUpBtn"
-                for="my-modal "
-                onClick={(e) => {
-                  e.preventDefault();
-                  alert("가입 완료");
-                  e.currentTarget.disabled = true;
-                }}>
-                가입하기
-              </button>
-              <label className="SignUpBtn" for="my-modal">
-                나가기
-              </label>
-            </div>
-          </p>
+              <div className="SiguUpBtndiv">
+                <button
+                  className="SignUpBtn"
+                  for="my-modal "
+                  type="submit"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    console.log(UserName, UserId, Password, ConfirmPassword);
+                    alert("가입 완료");
+                  }}>
+                  가입하기
+                </button>
+
+                <label className="SignUpBtn" for="my-modal">
+                  나가기
+                </label>
+              </div>
+            </p>
+          </form>
         </div>
       </div>
     </div>

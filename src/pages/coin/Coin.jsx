@@ -1,22 +1,12 @@
 import "./Coin.scss";
 import ZoomInIcon from "@mui/icons-material/ZoomIn";
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { Link } from "react-router-dom";
 
-const Coin = () => {
-  const [test, setTest] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  const fetchUsers = async () => {
+const Coin = ({ test, loading, error, setError, setLoading }) => {
+  const aaa = async () => {
     try {
-      // 요청이 시작 할 때에는 error 와 users 를 초기화하고
-      setError(null);
-      setTest(null);
-      // loading 상태를 true 로 바꿉니다.
       setLoading(true);
-      const response = await axios.get("http://localhost:7999/board/coin/get");
-      setTest(response.data); // 데이터는 response.data 안에 들어있습니다.
     } catch (e) {
       setError(e);
     }
@@ -24,13 +14,10 @@ const Coin = () => {
   };
 
   useEffect(() => {
-    fetchUsers();
+    aaa();
   }, []);
-
-  if (loading) return <div>로딩중..</div>;
-  if (error) return <div>에러가 발생했습니다</div>;
-
-  // 아직 users가 받아와 지지 않았을 때는 아무것도 표시되지 않도록 해줍니다.
+  if (loading) return <div>로딩중</div>;
+  if (error) return <div>에러</div>;
   if (!test) return null;
   return (
     <div class="Coin">
@@ -63,7 +50,9 @@ const Coin = () => {
             <tr key={Coin.id}>
               <td> {Coin.id}</td>
               <td>
-                <a href=""> {Coin.subject}</a>
+                <Link to={`/detailPage/${Coin.id}`} state={{ number: Coin.id }}>
+                  {Coin.subject}
+                </Link>
               </td>
               <td> {Coin.author}</td>
               <td> {Coin.date}</td>

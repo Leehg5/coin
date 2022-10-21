@@ -1,27 +1,35 @@
 import ClearIcon from "@mui/icons-material/Clear";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./DetailPage.scss";
+import axios from "axios";
+import { useLocation } from "react-router-dom";
 
 const DetailPage = () => {
+  const location = useLocation();
+  const [boardtext, setBoardText] = useState([]);
+  const fetchUsers = async () => {
+    const response = await axios.get(
+      `http://localhost:7999/board/coin/get/${location.state.number}`
+    );
+    setBoardText(response.data); // 데이터는 response.data 안에 들어있습니다.
+  };
+  useEffect(() => {
+    fetchUsers();
+  }, []);
   return (
     <div className="DetailPage">
       <div className="DetailPageMain">
-        <span className="DetailPageTitle">안녕하세요 </span>
+        <span className="DetailPageTitle">{boardtext.subject} </span>
       </div>
       <div className="DetailPagelist">
         <div className="DetailPagelistdiv">
-          <div>작성자:이용민</div>
-          <div>날짜:2022.02.13</div>
-          <div>조회수:5</div>
+          <span>작성자:{boardtext.author}</span>
+          <span>날짜:{boardtext.date}</span>
+          <span>조회수: 5 </span>
         </div>
       </div>
       <hr className="DetailPageHr" />
-      <div className="DetailPage_List_cjah">
-        안녕하세요 여기는 상세페이지 내용입니다요요요요요요안녕하세요 여기는
-        상세페이지 내용입니다요요요요요요 안녕하세요 여기는 상세페이지
-        내용입니다요요요요요요안녕하세요 여기는 상세페이지
-        내용입니다요요요요요요 안녕하세요 여기는 상세페이지
-      </div>
+      <div className="DetailPage_List_cjah">{boardtext.contents}</div>
       <div className="DetailPageButton">
         <button className="DetailPageButton1">수정</button>
 

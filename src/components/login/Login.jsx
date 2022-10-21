@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Login.scss";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [userId, setUserId] = useState("");
@@ -46,11 +47,12 @@ const Login = () => {
               <div className="loginMid"></div>
               <div className="autoLogin">아이디/비밀번호 찾기</div>
               <button
+                type="submit"
                 className="loginBtn"
                 onClick={async () => {
                   try {
                     const data = await axios({
-                      url: "http://localhost:8083/login",
+                      url: "http://localhost:7999/account/signIn",
                       method: "POST",
                       data: { userid: userId, password },
                     });

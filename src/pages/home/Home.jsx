@@ -1,19 +1,10 @@
 import Chart from "../../components/chart/Chart";
 import "./Home.scss";
-import Widget from "../../components/widget/Widget";
-
-import Box from "@mui/material/Box";
-import Tab from "@mui/material/Tab";
-import TabContext from "@mui/lab/TabContext";
-import TabList from "@mui/lab/TabList";
-import TabPanel from "@mui/lab/TabPanel";
-import { padding } from "@mui/system";
 import Board from "../../components/board/Board";
 import BoardEvent from "../../components/board/BoardEvent";
 import Featured from "../../components/featured/Featured";
 import Imageboard from "../../components/imageboard/Imageboard";
 import Banner from "../../components/banner/Banner";
-import User from "../../Users";
 
 const Home = () => {
   return (
