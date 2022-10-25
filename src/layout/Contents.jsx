@@ -33,6 +33,7 @@ const Contents = () => {
   useEffect(() => {
     fetchUsers();
   }, []);
+
   return (
     <div>
       <Routes>
@@ -61,6 +62,7 @@ const Contents = () => {
         <Route path="/event" element={<Event />} />
         <Route path="/detailPage/:id" element={<DetailPage />} />
         <Route path="/write" element={<Write />} />
+
         <Route path="/inquiry" element={<Inquiry />} />
         <Route path="/privacy" element={<Privacy />}></Route>
       </Routes>

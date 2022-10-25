@@ -1,14 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./SignUp.scss";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
-  const [UserName, setUserName] = useState("");
-  const [UserId, setUserId] = useState("");
-  const [ConfirmPassword, setConfirmPassword] = useState("");
-  const [Password, setPassword] = useState("");
+  const [userName, setUserName] = useState("");
+  const [userId, setUserId] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [password, setPassword] = useState("");
 
-  const onSubmit = () => {};
+  const register = () => {
+    axios
+      .post("http://localhost:7999/account/signUp", {
+        userId,
+        userName,
+        password,
+        confirmPassword,
+      })
+      .then((response) => {
+        // Handle success.
+        console.log(response.data);
+      });
+    if (true) {
+      alert("회원 가입 성공");
+    }
+  };
+
   return (
     <div className="SignUp">
       <label for="my-modal">회원가입</label>
@@ -18,77 +36,74 @@ const SignUp = () => {
         <div class="modal-box">
           <h3 class="font-bold text-lg">회원가입</h3>
           <AccountCircleIcon sx={{ fontSize: 70, marginTop: "20px" }} />
-          <form action="http://localhost:7999/account/signUp" method="post">
-            <p class="py-4">
-              <div className="SignUp_input">
-                <input
-                  className="loginId"
-                  type="text"
-                  vlaue={UserName}
-                  placeholder="이름을 입력하세요"
-                  onChange={(e) => {
-                    setUserName(e.target.value);
-                  }}
-                />
-              </div>
-              <div className="SignUp_input">
-                <input
-                  className="loginId"
-                  type="text"
-                  vlaue={UserId}
-                  placeholder="아이디를 입력하세요"
-                  onChange={(e) => {
-                    setUserId(e.target.value);
-                  }}
-                />
-              </div>
-              <div className="SignUp_input">
-                <input
-                  className="loginId"
-                  type="password"
-                  vlaue={Password}
-                  placeholder="비밀번호 입력하세요"
-                  onChange={(e) => {
-                    setPassword(e.target.value);
-                  }}
-                />
-              </div>
-              <div className="SignUp_input">
-                <input
-                  className="loginId"
-                  type="password"
-                  placeholder="비밀번호"
-                  vlaue={ConfirmPassword}
-                  onChange={(e) => {
-                    setConfirmPassword(e.target.value);
-                  }}
-                />
-              </div>
-              <div class="join_row">
-                <div className="Joindiv">
-                  <h3 class="join_title"></h3>
-                  <div class="ps_box gender_code"></div>
-                </div>
-              </div>
-              <div className="SiguUpBtndiv">
-                <button
-                  className="SignUpBtn"
-                  for="my-modal "
-                  type="submit"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    console.log(UserName, UserId, Password, ConfirmPassword);
-                    alert("가입 완료");
-                  }}>
-                  가입하기
-                </button>
 
-                <label className="SignUpBtn" for="my-modal">
-                  나가기
-                </label>
+          <p class="py-4">
+            <div className="SignUp_input">
+              <input
+                className="loginId"
+                type="text"
+                vlaue={userName}
+                placeholder="이름을 입력하세요"
+                onChange={(e) => {
+                  setUserName(e.target.value);
+                }}
+              />
+            </div>
+            <div className="SignUp_input">
+              <input
+                className="loginId"
+                type="text"
+                vlaue={userId}
+                placeholder="아이디를 입력하세요"
+                onChange={(e) => {
+                  setUserId(e.target.value);
+                }}
+              />
+            </div>
+            <div className="SignUp_input">
+              <input
+                className="loginId"
+                type="password"
+                vlaue={password}
+                placeholder="비밀번호 입력하세요"
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+              />
+            </div>
+            <div className="SignUp_input">
+              <input
+                className="loginId"
+                type="password"
+                placeholder="비밀번호"
+                vlaue={confirmPassword}
+                onChange={(e) => {
+                  setConfirmPassword(e.target.value);
+                }}
+              />
+            </div>
+            <div class="join_row">
+              <div className="Joindiv">
+                <h3 class="join_title"></h3>
+                <div class="ps_box gender_code"></div>
               </div>
-            </p>
-          </form>
+            </div>
+            <div className="SiguUpBtndiv">
+              <button
+                Name="SignUpBtn1"
+                type="reset"
+                onClick={() => {
+                  register();
+                  console.log(userName, userId, password, confirmPassword);
+                }}>
+                회원가입
+              </button>
+
+              <label className="SignUpBtn1" for="my-modal">
+                나가기
+              </label>
+            </div>
+          </p>
         </div>
       </div>
     </div>
