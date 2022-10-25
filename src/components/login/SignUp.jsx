@@ -9,6 +9,7 @@ const SignUp = () => {
   const [userId, setUserId] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const register = () => {
     axios
@@ -20,13 +21,17 @@ const SignUp = () => {
       })
       .then((response) => {
         // Handle success.
-        console.log(response.data);
+        // setSignUp(response.data);
+        if (response.data == true) {
+          alert("회원가입 성공!! 로그인 하세요");
+        } else if (response.data == false) {
+          alert("정보를 확인하세요");
+        }
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
       });
-    if (true) {
-      alert("회원 가입 성공");
-    }
   };
-
   return (
     <div className="SignUp">
       <label for="my-modal">회원가입</label>
@@ -89,15 +94,16 @@ const SignUp = () => {
               </div>
             </div>
             <div className="SiguUpBtndiv">
-              <button
+              <label
                 Name="SignUpBtn1"
                 type="reset"
+                for="my-modal"
                 onClick={() => {
                   register();
-                  console.log(userName, userId, password, confirmPassword);
+                  console.log(userId, password);
                 }}>
                 회원가입
-              </button>
+              </label>
 
               <label className="SignUpBtn1" for="my-modal">
                 나가기

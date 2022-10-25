@@ -4,9 +4,33 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const [userName, setUserName] = useState("");
   const [userId, setUserId] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [password, setPassword] = useState("");
-  const [logined, setLogined] = useState(false);
+  const navigate = useNavigate();
+
+  const register = () => {
+    axios
+      .post("http://localhost:7999/account/signIn", {
+        userId,
+        userName,
+        password,
+        confirmPassword,
+      })
+      .then((response) => {
+        // Handle success.
+        // setSignUp(response.data);
+        if (response.data == true) {
+          alert("로그인이 되었습니다");
+        } else if (response.data == false) {
+          alert("아이디 비밀번호를 확인하세요");
+        }
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
+      });
+  };
 
   return (
     <div className="Login">
@@ -49,19 +73,9 @@ const Login = () => {
               <button
                 type="submit"
                 className="loginBtn"
-                onClick={async () => {
-                  try {
-                    const data = await axios({
-                      url: "http://localhost:7999/account/signIn",
-                      method: "POST",
-                      data: { userid: userId, password },
-                    });
-                    console.log(data.data);
-
-                    setLogined(data.data);
-                  } catch (e) {
-                    alert(e.reponse.date);
-                  }
+                onClick={() => {
+                  register();
+                  // console.log(userName, userId, password, confirmPassword);
                 }}>
                 로그인{" "}
               </button>
