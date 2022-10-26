@@ -7,7 +7,7 @@ import Login from "../login/Login";
 import SignUp from "../login/SignUp";
 
 const Navbar = () => {
-  const [logined, setLogined] = useState(false);
+  const [lonned, setLonned] = useState(true);
 
   return (
     <div className="navbar">
@@ -19,12 +19,12 @@ const Navbar = () => {
             Korea
           </div>
           <div className="Hader_Login1">
-            {logined ? (
+            {lonned ? (
               <div
                 onClick={() => {
-                  setLogined(false);
+                  setLonned(false);
                 }}>
-                로그아웃
+                이용민 로그아웃
               </div>
             ) : (
               <div className="Hader_Login1">

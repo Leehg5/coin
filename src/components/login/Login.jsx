@@ -6,9 +6,7 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const [userName, setUserName] = useState("");
   const [userId, setUserId] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
 
   const register = () => {
     axios
@@ -16,7 +14,6 @@ const Login = () => {
         userId,
         userName,
         password,
-        confirmPassword,
       })
       .then((response) => {
         // Handle success.
@@ -26,9 +23,6 @@ const Login = () => {
         } else if (response.data == false) {
           alert("아이디 비밀번호를 확인하세요");
         }
-        setTimeout(() => {
-          navigate("/");
-        }, 2000);
       });
   };
 
@@ -70,15 +64,17 @@ const Login = () => {
               </div>
               <div className="loginMid"></div>
               <div className="autoLogin">아이디/비밀번호 찾기</div>
-              <button
+              <label
                 type="submit"
                 className="loginBtn"
+                for="my-modal-1"
                 onClick={() => {
                   register();
+
                   // console.log(userName, userId, password, confirmPassword);
                 }}>
                 로그인{" "}
-              </button>
+              </label>
             </div>
             <div className="socialBox">
               <div className="kakao">
