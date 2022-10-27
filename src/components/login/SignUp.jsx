@@ -39,11 +39,7 @@ const SignUp = () => {
       <input type="checkbox" id="my-modal" class="modal-toggle" />
       <div class="modal">
         <div class="modal-box">
-          <h3
-            class="font-bold text-lg"
-            style={{ fontSize: 70, marginTop: "20px" }}>
-            회원가입
-          </h3>
+          <h3 class="font-bold text-lg">회원가입</h3>
           <AccountCircleIcon sx={{ fontSize: 70, marginTop: "20px" }} />
 
           <p class="py-4">
@@ -104,7 +100,7 @@ const SignUp = () => {
                 for="my-modal"
                 onClick={() => {
                   registerd();
-                  console.log(userId, password);
+                  console.log(userId, password, userName, confirmPassword);
                 }}>
                 회원가입
               </label>

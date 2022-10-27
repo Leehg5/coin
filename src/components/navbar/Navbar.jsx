@@ -1,16 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Navbar.scss";
 import LanguageIcon from "@mui/icons-material/Language";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import { atom, RecoilRoot, useRecoilState } from "recoil";
+import { recoilPersist } from "recoil-persist";
 
 import SignUp from "../login/SignUp";
-
 const Navbar = () => {
   const [lonned, setLonned] = useState(false);
-  const [userName, setUserName] = useState("");
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
+  const { persistAtom } = recoilPersist();
+  const [name, setName] = useState("");
+
+  const check = sessionStorage.getItem("logined") || false;
+  useEffect(() => {
+    if (check) {
+      setLonned(sessionStorage.getItem("user"));
+      console.log(check);
+    }
+  }, []);
 
   return (
     <div className="navbar">
@@ -24,13 +35,14 @@ const Navbar = () => {
           <div className="Hader_Login1">
             {lonned ? (
               <>
-                <span className="navbar_span">이용민</span>
+                <span className="navbar_span">{check}</span>
 
                 <span className="navbar_span1">님</span>
                 <button
                   className="LoginNamedaci"
                   onClick={() => {
                     setLonned(false);
+                    sessionStorage.clear();
                   }}>
                   로그아웃
                 </button>
@@ -57,7 +69,6 @@ const Navbar = () => {
                               className="loginId"
                               type="text"
                               placeholder="ID"
-                              vlaue={userId}
                               onChange={(e) => {
                                 setUserId(e.target.value);
                               }}
@@ -68,7 +79,6 @@ const Navbar = () => {
                               className="loginPw"
                               type="password"
                               placeholder="Password"
-                              vlaue={password}
                               onChange={(e) => {
                                 setPassword(e.target.value);
                               }}
@@ -84,17 +94,29 @@ const Navbar = () => {
                               const lonned = await axios({
                                 url: "http://localhost:7999/account/signIn",
                                 method: "POST",
-                                data: { userId, password, userName },
+                                data: { userId, password },
                               });
+                              setName(lonned.data.userName);
 
-                              if (lonned.data == true) {
+                              if (lonned.data.aboolean == true) {
                                 setLonned(lonned.data);
-                                alert("회원가입 성공!! 환영합니다");
+
+                                alert("로그인 성공");
                               } else if (lonned.data == false) {
-                                setLonned(lonned.data);
-                                alert("회원가입 실패");
+                                setLonned(lonned.data.userName);
+
+                                alert("빈칸을 확이나세요");
                               }
-                              console.log(lonned.data);
+
+                              sessionStorage.setItem(
+                                "logined",
+                                lonned.data.userName
+                              );
+                              sessionStorage.setItem(
+                                "user",
+                                lonned.data.userName
+                              );
+                              console.log("setItem");
                             }}>
                             {" "}
                             로그인{" "}
