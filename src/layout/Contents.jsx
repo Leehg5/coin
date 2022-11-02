@@ -25,6 +25,7 @@ const Contents = () => {
   const [test, setTest] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [userId, setUserId] = useState("");
 
   const fetchUsers = async () => {
     const response = await axios.get("http://localhost:7999/board/coin/get");
@@ -37,7 +38,10 @@ const Contents = () => {
   return (
     <div>
       <Routes>
-        <Route path="" element={<Home />} />
+        <Route
+          path=""
+          element={<Home userId={userId} setUserId={setUserId} />}
+        />
         <Route path="/stock" element={<Stock />} />
         <Route path="/ovStocks" element={<OvStocks />} />
         <Route path="/boardStock" element={<BoardStock />} />
@@ -64,7 +68,9 @@ const Contents = () => {
         <Route path="/write" element={<Write />} />
 
         <Route path="/inquiry" element={<Inquiry />} />
-        <Route path="/privacy" element={<Privacy />}></Route>
+        <Route
+          path="/privacy"
+          element={<Privacy userId={userId} setUserId={setUserId} />}></Route>
       </Routes>
     </div>
   );

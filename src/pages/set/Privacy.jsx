@@ -1,8 +1,36 @@
-import React from "react";
-
+import React, { useState, useEffect, useRef } from "react";
+import { recoilPersist } from "recoil-persist";
 import "./Privacy.scss";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Privacy = () => {
+  const [lonned, setLonned] = useState(false);
+
+  const [userName, setUserName] = useState("");
+  const [userId, setUserId] = useState("");
+
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+
+  const check = sessionStorage.getItem("logined") || false;
+  useEffect(() => {
+    if (check) {
+      setLonned(sessionStorage.getItem("user"));
+      setUserId(sessionStorage.getItem("userid"));
+    }
+  }, []);
+
+  const mounted = useRef("false");
+  useEffect(() => {
+    if (lonned.data) {
+      setLonned(lonned.data == false);
+      console.log(lonned.data);
+    }
+  }, []);
+
   return (
     <div className="Privacy">
       <div className="top">
@@ -19,37 +47,66 @@ const Privacy = () => {
           <form>
             <div className="formInput">
               <label htmlFor="">이름</label>
-              <div className="name">데이터이름</div>
+              <div className="name">{check}</div>
             </div>
 
             <div className="formInput">
               <label htmlFor="">아이디</label>
-              <div>데이터 아이디</div>
+              <div>{userId}</div>
             </div>
             <div className="formInput">
               <label htmlFor="">비밀번호</label>
-              <input type="password" placeholder="비밀번호" />
+              <input
+                type="password"
+                vlaue={password}
+                placeholder="비밀번호 입력하세요"
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+              />
               <h4>최소 8글자 이상</h4>
             </div>
             <div className="formInput">
               <label htmlFor="">비밀번호 </label>
-              <input type="password" placeholder="비밀번호 재입력" />
+              <input
+                type="password"
+                placeholder="비밀번호"
+                vlaue={confirmPassword}
+                onChange={(e) => {
+                  setConfirmPassword(e.target.value);
+                }}
+              />
               <h4>비밀번호를 확인하십시오</h4>
-            </div>
-            <div class="formdiv">
-              <label htmlFor="">성별 </label>
-              <select id="gender" name="gender" class="sel" aria-label="성별">
-                <div value="" className="dkfooeo">
-                  남자
-                </div>
-                <option value="M">남자</option>
-                <option value="F">여자</option>
-                <option value="U">선택 안함</option>
-              </select>
             </div>
           </form>
           <div className="buttonDiv">
-            <button>수정하기</button>
+            <button
+              type="reset"
+              onClick={async () => {
+                const lonned = await axios({
+                  url: "http://localhost:7999/account/pwReset",
+                  method: "patch",
+                  data: { userId, userName, password, confirmPassword },
+                });
+
+                if (lonned.data == true) {
+                  setLonned(lonned.data);
+
+                  alert("비밀번호 변경완료");
+                  setLonned();
+                  sessionStorage.clear();
+
+                  setTimeout(() => {
+                    navigate("/");
+                  });
+                } else if (lonned.data == false) {
+                  setLonned(lonned.data);
+
+                  alert("비밀번호를 확인해주세요");
+                }
+              }}>
+              수정하기
+            </button>
           </div>
         </div>
       </div>

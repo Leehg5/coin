@@ -10,16 +10,18 @@ import { recoilPersist } from "recoil-persist";
 import SignUp from "../login/SignUp";
 const Navbar = () => {
   const [lonned, setLonned] = useState(false);
-  const [userId, setUserId] = useState("");
+  const [userId, setUserId] = useState();
   const [password, setPassword] = useState("");
   const { persistAtom } = recoilPersist();
   const [name, setName] = useState("");
+  const [id, setId] = useState("");
+  const navigate = useNavigate();
 
   const check = sessionStorage.getItem("logined") || false;
   useEffect(() => {
     if (check) {
       setLonned(sessionStorage.getItem("user"));
-      console.log(check);
+      setUserId(sessionStorage.getItem("userid"));
     }
   }, []);
 
@@ -42,6 +44,7 @@ const Navbar = () => {
                   className="LoginNamedaci"
                   onClick={() => {
                     setLonned(false);
+
                     sessionStorage.clear();
                   }}>
                   로그아웃
@@ -96,18 +99,23 @@ const Navbar = () => {
                                 method: "POST",
                                 data: { userId, password },
                               });
-                              setName(lonned.data.userName);
 
+                              setName(lonned.data.username);
+                              setId(lonned.data.userId);
+
+                              setId(lonned.data.userName);
                               if (lonned.data.aboolean == true) {
                                 setLonned(lonned.data);
-
+                                setTimeout(() => {
+                                  navigate("/");
+                                });
                                 alert("로그인 성공");
-                              } else if (lonned.data == false) {
+                              } else if (lonned.data.aboolean == false) {
                                 setLonned(lonned.data.userName);
 
                                 alert("빈칸을 확이나세요");
                               }
-
+                              console.log(lonned);
                               sessionStorage.setItem(
                                 "logined",
                                 lonned.data.userName
@@ -116,7 +124,10 @@ const Navbar = () => {
                                 "user",
                                 lonned.data.userName
                               );
-                              console.log("setItem");
+                              sessionStorage.setItem(
+                                "userid",
+                                lonned.data.userId
+                              );
                             }}>
                             {" "}
                             로그인{" "}

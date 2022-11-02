@@ -19,6 +19,10 @@ const Coin = ({ test, loading, error, setError, setLoading }) => {
   if (loading) return <div>로딩중</div>;
   if (error) return <div>에러</div>;
   if (!test) return null;
+
+  test.sort(function (a, b) {
+    return b.id - a.id;
+  });
   return (
     <div class="Coin">
       <div className="CoinTitel">
@@ -31,7 +35,9 @@ const Coin = ({ test, loading, error, setError, setLoading }) => {
         <button>
           <ZoomInIcon />
         </button>
-        <button className="CoinListbutton">글쓰기</button>
+        <a href="/write">
+          <button className="CoinListbutton">글쓰기</button>
+        </a>
       </div>
       <table class="tbl_type">
         <caption>게시판 리스트</caption>
