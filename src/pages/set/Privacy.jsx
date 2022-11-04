@@ -23,14 +23,6 @@ const Privacy = () => {
     }
   }, []);
 
-  const mounted = useRef("false");
-  useEffect(() => {
-    if (lonned.data) {
-      setLonned(lonned.data == false);
-      console.log(lonned.data);
-    }
-  }, []);
-
   return (
     <div className="Privacy">
       <div className="top">
@@ -91,17 +83,16 @@ const Privacy = () => {
 
                 if (lonned.data == true) {
                   setLonned(lonned.data);
+                  console.log(lonned.data);
 
                   alert("비밀번호 변경완료");
-                  setLonned();
+                  setLonned(false);
                   sessionStorage.clear();
 
-                  setTimeout(() => {
-                    navigate("/");
-                  });
+                  navigate("/");
+                  window.location.reload();
                 } else if (lonned.data == false) {
                   setLonned(lonned.data);
-
                   alert("비밀번호를 확인해주세요");
                 }
               }}>

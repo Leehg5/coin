@@ -2,25 +2,37 @@ import React, { useState, useEffect } from "react";
 import "./Write.jsx";
 import "./Write.scss";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
-const Write = () => {
+const UpdateWrite = () => {
   const [subject, setSubject] = useState("");
   const [author, setAuthor] = useState("");
   const [lonned, setLonned] = useState(false);
   const [contents, setContents] = useState("");
   const [selectBoard, setSelectBoard] = useState("");
   const navigate = useNavigate();
-  const post = () => {
+  const location = useLocation();
+
+  const [boardtext, setBoardText] = useState([]);
+
+  const fetchUsers = async () => {
+    const response = await axios.get(
+      `http://localhost:7999/board/coin/b/getid?id=${location.state.number}`
+    );
+    setBoardText(response.data); // 데이터는 response.data 안에 들어있습니다.
+  };
+
+  const patch = () => {
     axios
-      .post(`http://localhost:7999/board/${selectBoard}/b/post`, {
+      .patch(`http://localhost:7999/board/${selectBoard}/b/patch`, {
+        id: `${location.state.number}`,
         subject,
         contents,
         author,
       })
       .then((response) => {
         if (response.data == true) {
-          alert("작성완료");
+          alert("수정완료");
           navigate(-1);
         } else if (response.data == false) {
           alert("실패");
@@ -36,17 +48,21 @@ const Write = () => {
     console.log(check);
     setAuthor(check);
   }, []);
-  const showValue = () => {};
+
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
   return (
     <div className="select-MainDiv">
       <div class="con">
-        <h1>게시글 작성</h1>
+        <h1>수정 페이지</h1>
         <div class="article-write">
           <form>
             <div className="write_list">
               <select
                 className="write_select"
-                id=""
+                value={selectBoard}
                 aria-label="게시판목록"
                 onChange={(e) => {
                   setSelectBoard(e.target.value);
@@ -58,7 +74,7 @@ const Write = () => {
                 <option value="stockMarket">주식 게시판</option>
                 <option value="M">--------------------</option>
                 <option value="coin">코인 정보</option>
-                <option value="boardcoin">코인 게시판</option>
+                <option value="coin">코인 게시판</option>
                 <option value="M">--------------------</option>
                 <option value="news">선물/마진 벙보</option>
                 <option value="news">선물/마진 게시판</option>
@@ -81,9 +97,10 @@ const Write = () => {
                 className="write-title"
                 type="text"
                 placeholder="제목을 입력해주세요"
-                value={subject}
+                defaultValue={boardtext.subject}
                 onChange={(e) => {
                   setSubject(e.target.value);
+                  console.log(e.target.value);
                 }}
               />
             </div>
@@ -92,7 +109,7 @@ const Write = () => {
               <textarea
                 className="write-mimee"
                 type="text"
-                value={contents}
+                defaultValue={boardtext.contents}
                 onChange={(e) => {
                   setContents(e.target.value);
                 }}
@@ -103,10 +120,9 @@ const Write = () => {
             <button
               className="Write_button1"
               onClick={() => {
-                post();
-                console.log(subject, contents, author);
+                patch();
               }}>
-              작성 하기
+              수정 하기
             </button>
             <button
               className="Write_button2"
@@ -123,4 +139,4 @@ const Write = () => {
   );
 };
 
-export default Write;
+export default UpdateWrite;

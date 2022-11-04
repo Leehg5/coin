@@ -46,7 +46,9 @@ const Navbar = () => {
                     setLonned(false);
 
                     sessionStorage.clear();
-                  }}>
+                    window.location.reload();
+                  }}
+                >
                   로그아웃
                 </button>
               </>
@@ -60,7 +62,8 @@ const Navbar = () => {
                     <div class="modal-box relative">
                       <label
                         for="my-modal-1"
-                        class="btn-sm absolute right-6 top-9">
+                        class="btn-sm absolute right-6 top-9"
+                      >
                         ✕
                       </label>
 
@@ -106,10 +109,9 @@ const Navbar = () => {
                               setId(lonned.data.userName);
                               if (lonned.data.aboolean == true) {
                                 setLonned(lonned.data);
-                                setTimeout(() => {
-                                  navigate("/");
-                                });
+
                                 alert("로그인 성공");
+                                window.location.reload();
                               } else if (lonned.data.aboolean == false) {
                                 setLonned(lonned.data.userName);
 
@@ -128,7 +130,8 @@ const Navbar = () => {
                                 "userid",
                                 lonned.data.userId
                               );
-                            }}>
+                            }}
+                          >
                             {" "}
                             로그인{" "}
                           </label>

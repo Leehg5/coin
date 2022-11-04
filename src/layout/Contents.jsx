@@ -20,21 +20,20 @@ import DetailPage from "../components/etailpage/DetailPage";
 import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
+import UpdateWrite from "../components/write/UpdateWrite";
 
 const Contents = () => {
   const [test, setTest] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [userId, setUserId] = useState("");
-
   const fetchUsers = async () => {
-    const response = await axios.get("http://localhost:7999/board/coin/get");
+    const response = await axios.get("http://localhost:7999/board/coin/b/get");
     setTest(response.data); // 데이터는 response.data 안에 들어있습니다.
   };
   useEffect(() => {
     fetchUsers();
   }, []);
-
   return (
     <div>
       <Routes>
@@ -64,8 +63,12 @@ const Contents = () => {
         <Route path="/revenue" element={<Revenue />} />
         <Route path="/notice" element={<Notice />} />
         <Route path="/event" element={<Event />} />
-        <Route path="/detailPage/:id" element={<DetailPage />} />
+        <Route
+          path="/detailPage/:id"
+          element={<DetailPage test={test} setTest={setTest} />}
+        />
         <Route path="/write" element={<Write />} />
+        <Route path="/upwrite" element={<UpdateWrite />} />
 
         <Route path="/inquiry" element={<Inquiry />} />
         <Route
@@ -75,5 +78,4 @@ const Contents = () => {
     </div>
   );
 };
-
 export default Contents;
