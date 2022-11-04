@@ -90,9 +90,9 @@
   .DetailPage_button1 {
     flex: 1;
 
-    background-color: #848484;
-    border-radius: 20px;
-    border: 1px solid #848484;
+    background-color: #424242;
+    border-radius: 3px;
+    border: 1px solid #424242;
     display: inline-block;
     cursor: pointer;
     color: #ffffff;
@@ -104,30 +104,32 @@
 }
 
 .DetailPageTd {
-  width: 100%;
   td {
-    width: 100%;
     padding: 5px;
   }
   td:nth-child(1) {
-    text-align: left;
     width: 100px;
+    text-align: start;
     font-size: 15px;
   }
 
   td:nth-child(2) {
-    padding: 10px 0px 0px 0px;
     width: 100%;
+    text-align: start;
     display: flex;
+    margin-top: 10px;
+
     font-size: 12px;
   }
 
   td:nth-child(3) {
-    padding: 0px 0px 10px 0px;
-
     width: 100%;
-    text-align: left;
+    text-align: start;
     display: flex;
+  }
+  td:nth-child(4) {
+    width: 1%;
+    align-items: flex-end;
   }
 }
 .asddgiuhi23 {

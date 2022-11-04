@@ -107,11 +107,15 @@ const DetailPage = ({ test, setTest }) => {
         <tbody className="DetailPage_BoootList">
           {comList.map((list) => (
             <tr className="DetailPageTd" key={list.id}>
-              <td>{list.author}</td>
+              <td className="trdiv1">{list.author}</td>
 
-              <td>{list.date}</td>
+              <td className="trdiv2">{list.date}</td>
 
-              <td>{list.contents}</td>
+              <td className="trdiv3">{list.contents} </td>
+              <td className="trdiv4">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </td>
             </tr>
           ))}
         </tbody>
