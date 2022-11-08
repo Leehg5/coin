@@ -11,6 +11,7 @@ const DetailPage = ({ test, setTest }) => {
   const [boardtext, setBoardText] = useState([]);
   const [comment, setComment] = useState("");
   const [comList, setComList] = useState([]);
+
   const fetchUsers = async () => {
     const response2 = await axios.get(
       `http://localhost:7999/board/coin/b/getid/comment?id=${location.state.number}`
@@ -27,6 +28,8 @@ const DetailPage = ({ test, setTest }) => {
   }, []);
   const aaa = sessionStorage.getItem("logined") == boardtext.author;
 
+  const bbb = (ccc) => sessionStorage.getItem("logined") == ccc;
+
   const deleteList = async () => {
     const response = await axios.delete(
       `http://localhost:7999/board/coin/b/delete`,
@@ -42,19 +45,34 @@ const DetailPage = ({ test, setTest }) => {
     navigate(-1);
   };
   const compost = () => {
-    axios.post(`http://localhost:7999/board/coin/b/post/comment`, {
-      contents: comment,
-      author: sessionStorage.getItem("logined"),
-      id: `${location.state.number}`,
+    if (sessionStorage.getItem("user") || false) {
+      axios.post(`http://localhost:7999/board/coin/b/post/comment`, {
+        contents: comment,
+        author: sessionStorage.getItem("logined"),
+        id: `${location.state.number}`,
+      });
+
+      console.log(
+        "contents " +
+          comment +
+          " author " +
+          sessionStorage.getItem("logined") +
+          " id " +
+          `${location.state.number}`
+      );
+    } else if (sessionStorage.getItem("user") || true) {
+      alert("로그인 해주세요");
+    }
+    console.log(location.state.number);
+    window.location.reload();
+  };
+  const comdelete = (x) => {
+    axios.delete(`http://localhost:7999/board/coin/b/delete/comment`, {
+      data: {
+        id: x,
+        author: sessionStorage.getItem("logined"),
+      },
     });
-    console.log(
-      "contents " +
-        comment +
-        " author " +
-        sessionStorage.getItem("logined") +
-        " id " +
-        `${location.state.number}`
-    );
     window.location.reload();
   };
 
@@ -113,8 +131,19 @@ const DetailPage = ({ test, setTest }) => {
 
               <td className="trdiv3">{list.contents} </td>
               <td className="trdiv4">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {bbb(list.author) ? (
+                  <>
+                    <button
+                      onClick={() => {
+                        comdelete(list.id);
+                      }}>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; X
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </button>
+                  </>
+                ) : (
+                  <></>
+                )}
               </td>
             </tr>
           ))}
