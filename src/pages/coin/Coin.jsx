@@ -27,11 +27,6 @@ const Coin = ({ test, loading, error, setError, setLoading }) => {
         </div>
       </div>
       <div className="meailinputton">
-        <input placeholder="찾을내용을 입력하세요" type="text" />
-        <button>
-          <ZoomInIcon />
-        </button>
-
         <button
           className="CoinListbutton"
           onClick={() => {

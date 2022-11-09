@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Navbar.scss";
 import LanguageIcon from "@mui/icons-material/Language";
 import axios from "axios";
+import ZoomInIcon from "@mui/icons-material/ZoomIn";
 import { useNavigate } from "react-router-dom";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import { atom, RecoilRoot, useRecoilState } from "recoil";
@@ -16,6 +17,22 @@ const Navbar = () => {
   const [name, setName] = useState("");
   const [id, setId] = useState("");
   const navigate = useNavigate();
+  const [gggg, setGggg] = useState("");
+  const [BoardText, setBoardText] = useState("");
+  const [deleteListsd, setDeleteListsd] = useState();
+
+  const deleteList = async () => {
+    const response = await axios.get(
+      `http://localhost:7999/board/1/2/searchAll?value=${gggg}`
+    );
+    console.log(response.data);
+    setBoardText(response.data);
+    if (response.data != false) {
+      navigate("/searchlist");
+    } else if (response.data == false) {
+      alert("입력하신 정보가 없습니다");
+    }
+  };
 
   const check = sessionStorage.getItem("logined") || false;
   useEffect(() => {
@@ -28,7 +45,25 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="wrapper">
-        <div className="search1"></div>
+        <div className="search1">
+          <input
+            placeholder="검색어를 입력해주세요"
+            type="value"
+            onChange={(e) => {
+              setGggg(e.target.value);
+            }}
+          />
+
+          <button
+            onClick={() => {
+              deleteList();
+              setDeleteListsd();
+              deleteList = { deleteList };
+            }}>
+            <ZoomInIcon />
+          </button>
+        </div>
+
         <div className="items">
           <div className="item">
             <LanguageIcon className="icon" />
