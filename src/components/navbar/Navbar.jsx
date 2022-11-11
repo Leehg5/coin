@@ -3,7 +3,7 @@ import "./Navbar.scss";
 import LanguageIcon from "@mui/icons-material/Language";
 import axios from "axios";
 import ZoomInIcon from "@mui/icons-material/ZoomIn";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import { atom, RecoilRoot, useRecoilState } from "recoil";
 import { recoilPersist } from "recoil-persist";
@@ -25,10 +25,15 @@ const Navbar = () => {
     const response = await axios.get(
       `http://localhost:7999/board/1/2/searchAll?value=${gggg}`
     );
-    console.log(response.data);
+    // console.log(response.data);
     setBoardText(response.data);
+    console.log(BoardText);
     if (response.data != false) {
-      navigate("/searchlist");
+      navigate("/searchlist", {
+        state: {
+          test: response.data,
+        },
+      });
     } else if (response.data == false) {
       alert("입력하신 정보가 없습니다");
     }
@@ -60,7 +65,9 @@ const Navbar = () => {
               setDeleteListsd();
               deleteList = { deleteList };
             }}>
-            <ZoomInIcon />
+            <Link>
+              <ZoomInIcon />
+            </Link>
           </button>
         </div>
 
