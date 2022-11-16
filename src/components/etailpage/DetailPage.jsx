@@ -4,6 +4,7 @@ import "./DetailPage.scss";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Coin from "../../pages/coin/Coin";
 
 const DetailPage = ({ test, setTest }) => {
   const location = useLocation();
@@ -11,6 +12,9 @@ const DetailPage = ({ test, setTest }) => {
   const [boardtext, setBoardText] = useState([]);
   const [comment, setComment] = useState("");
   const [comList, setComList] = useState([]);
+  test.sort(function (a, b) {
+    return b.id - a.id;
+  });
 
   const fetchUsers = async () => {
     const response2 = await axios.get(
