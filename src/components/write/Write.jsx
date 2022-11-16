@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Write.jsx";
 import "./Write.scss";
 import axios from "axios";
-
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useNavigate } from "react-router-dom";
 
 const Write = () => {
@@ -40,8 +40,13 @@ const Write = () => {
   const showValue = () => {};
   return (
     <div className="select-MainDiv">
+      <a href="">
+        <h1>
+          <ArrowBackIcon />
+          &nbsp; 암호 화폐
+        </h1>
+      </a>
       <div class="con">
-        <h1>게시글 작성</h1>
         <div class="article-write">
           <form>
             <div className="write_list">
@@ -94,6 +99,10 @@ const Write = () => {
               />
             </div>
           </form>
+
+          <div class="filebox">
+            <input type="file" id="ex_file" />
+          </div>
           <div className="Write_button">
             <button
               className="Write_button1"
