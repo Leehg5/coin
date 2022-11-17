@@ -41,10 +41,16 @@ const Write = () => {
   return (
     <div className="select-MainDiv">
       <a href="">
-        <h1>
-          <ArrowBackIcon />
-          &nbsp; 암호 화폐
-        </h1>
+        <button
+          type="button"
+          onclick={() => {
+            navigate(-1);
+          }}>
+          <h1>
+            <ArrowBackIcon className="icon" />
+            &nbsp; 암호 화폐
+          </h1>
+        </button>
       </a>
       <div class="con">
         <div class="article-write">
@@ -71,16 +77,14 @@ const Write = () => {
                 <option value="테스트10">전문가의 방</option>
                 <option value="M">--------------------</option>
               </select>
-              <div className="write_list_title">
-                * 게시글 목록을 확인해 주세요
-              </div>
+              <div className="write_list_title">* 게시판을 선택 해주세요</div>
             </div>
             <div></div>
             <div>
               <input
                 className="write-title"
                 type="text"
-                placeholder="제목을 입력해주세요"
+                placeholder="제목을 입력해주세요."
                 value={subject}
                 onChange={(e) => {
                   setSubject(e.target.value);
@@ -110,15 +114,15 @@ const Write = () => {
                 post();
                 console.log(subject, contents, author);
               }}>
-              작성 하기
+              등록
             </button>
             <button
-              className="Write_button2"
+              className="Write-button2"
               type="button"
               onclick={() => {
                 navigate(-1);
               }}>
-              돌아기기
+              취소
             </button>
           </div>
         </div>

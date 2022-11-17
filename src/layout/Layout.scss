@@ -4,6 +4,7 @@
   margin: 0 auto;
   display: flex;
   width: 100%;
+  height: 150vh;
 
   .Layoutsson {
     border: 1px solid rgb(236, 234, 234);
@@ -381,13 +382,15 @@ p {
   display: flex;
   flex-direction: column;
   position: relative;
-
+  height: 260px;
+  background-color: white;
   word-break: break-all;
   border: 1px solid #e6e6e6;
 }
 .bloc-tabs {
   display: flex;
   background-color: white;
+  font-weight: bold;
   button {
     background-color: white;
   }
@@ -395,18 +398,22 @@ p {
 
 // 텝바
 .tabs {
-  padding: 15px;
+  padding: 10px;
   text-align: center;
   background: rgba(128, 128, 128, 0.075);
   cursor: pointer;
   box-sizing: content-box;
   position: relative;
   outline: none;
+  border-radius: 15%;
+  margin: 5px 5px;
+}
+.tabs:hover {
+  background-color: rgb(199, 199, 199);
 }
 
 .content {
   background: white;
-
   width: 100%;
   height: 100%;
   display: none;
@@ -448,4 +455,59 @@ p {
 }
 .ssdmjvnslkeuh3 {
   height: 500px;
+}
+
+.aaaaaaa {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: #868e96;
+
+  .first_name {
+    width: 50px;
+    white-space: nowrap;
+  }
+  .aaa1 {
+    margin-left: auto;
+    margin-right: 0;
+    text-align: right;
+  }
+  div {
+    span {
+      padding: 0 5px;
+    }
+    .span_high {
+      color: red;
+    }
+    .span_low {
+      color: blue;
+    }
+  }
+  .img_box {
+    width: 50px;
+    height: 50px;
+    .logo_img {
+      border-radius: 50%;
+      width: 70%;
+      margin: 0 auto;
+      margin-top: 5px;
+    }
+    .logo_img_sam {
+      width: 80%;
+      margin: 0 auto;
+      margin-top: 22px;
+    }
+    .logo_img_kakao {
+      width: 80%;
+      margin: 0 auto;
+      margin-top: 18px;
+    }
+  }
+}
+
+.border_line {
+  background-color: #f0f3fa;
+  height: 1px;
+  margin: 0 10px;
 }
